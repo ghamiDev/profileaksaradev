@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { FaWhatsapp } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -42,16 +44,27 @@ export const Footer = () => {
           {/* Info */}
           <div>
             <h4 className="font-semibold text-white mb-4">Contact</h4>
-            <div className="space-y-2 text-gray-400">
-              <a href="https://wa.me/6285725531089" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
-                WhatsApp: +62 857 2553 1089
-              </a>
+
+            <div className="space-y-3 text-gray-400">
               
-            </div>
-             <div className="space-y-2 text-gray-400">
-              <a href="mailto:pm@aksaradev.com" className="hover:text-cyan-400 transition-colors">
-                Email: pm@aksaradev.com
+              <a
+                href="https://wa.me/6285725531089"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-cyan-400 transition-colors"
+              >
+                <FaWhatsapp size={18} />
+                <span>+62 857 2553 1089</span>
               </a>
+
+              <a
+                href="mailto:pm@aksaradev.com"
+                className="flex items-center gap-3 hover:text-cyan-400 transition-colors"
+              >
+                <MdEmail size={18} />
+                <span>pm@aksaradev.com</span>
+              </a>
+
             </div>
           </div>
         </motion.div>

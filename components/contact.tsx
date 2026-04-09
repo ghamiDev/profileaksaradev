@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucide-react'
+import { FaInstagram, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
 
 export const Contact = () => {
   const containerVariants = {
@@ -147,9 +148,9 @@ export const Contact = () => {
           className="flex justify-center gap-6 mt-12"
         >
           {[
-            { icon: Linkedin, href: 'https://wa.me/6285725531089' },
-            { icon: Github, href: 'https://wa.me/6285725531089' },
-            { icon: Twitter, href: 'https://wa.me/6285725531089' },
+            { icon: Instagram, href: 'https://www.instagram.com/aksaradevstudio' },
+            { icon: FaTiktok, href: 'https://www.tiktok.com/@aksaradevstudio' },
+            { icon: FaWhatsapp, href: 'https://wa.me/6285725531089' },
           ].map((social, i) => (
             <motion.a
               key={i}

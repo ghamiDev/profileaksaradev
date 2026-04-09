@@ -46,6 +46,13 @@ const portfolio = [
     demoUrl: '/embed?url=https://travel-rental.vercel.app/',
     slug: 'travel-rental',
   },
+  {
+    title: 'Marketplace Joglo Heritage',
+    description: 'Platform marketplace untuk produk budaya Joglo',
+    tech: ['Next.js', 'E-commerce', 'Payment'],
+    demoUrl: '/embed?url=https://v0-joglo-heritage-marketplace.vercel.app/',
+    slug: 'marketplace-joglo-heritage',
+  },
 ]
 
 export const Portfolio = () => {

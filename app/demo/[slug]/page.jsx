@@ -5,6 +5,7 @@ const DEMO_MAP = {
   'admin-desa-digital': 'https://admi-panel-de-d-it.vercel.app/login',
   'pos': 'https://aksara-pos-six.vercel.app/',
   'travel-rental': 'https://travel-rental.vercel.app/',
+  'marketplace-joglo-heritage': 'https://v0-joglo-heritage-marketplace.vercel.app/',
 }
 
 export default async function DemoPage({ params }) {

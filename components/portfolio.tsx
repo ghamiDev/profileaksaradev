@@ -30,7 +30,7 @@ const portfolio = [
     description: 'Panel admin desa digital',
     tech: ['React', 'Dashboard', 'Auth'],
     demoUrl: '/embed?url=https://admi-panel-de-d-it.vercel.app/login',
-    slug: 'admin-panel-desa-digital',
+    slug: 'admin-desa-digital',
   },
   {
     title: 'POS',

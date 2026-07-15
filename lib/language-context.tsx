@@ -21,21 +21,30 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 // Deteksi bahasa dari preferensi browser / lokasi
 function detectLanguage(): Language {
-  if (typeof window === "undefined") return "en";
+  if (typeof window === "undefined") return "id";
 
-  // Cek localStorage dulu
+  // Cek localStorage dulu (override manual user)
   const stored = localStorage.getItem("aksara-lang") as Language | null;
   if (stored && (stored === "en" || stored === "id")) return stored;
 
-  // Deteksi dari navigator.language
-  const browserLang = navigator.language || "";
-  if (browserLang.startsWith("id")) return "id";
+  // Cek cookie dari middleware (deteksi IP / negara)
+  const countryCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("aksara-country="));
+  if (countryCookie) {
+    const country = countryCookie.split("=")[1];
+    // Jika negara bukan Indonesia, gunakan bahasa Inggris
+    if (country && country !== "ID") {
+      return "en";
+    }
+  }
 
-  return "en";
+  // Default: Bahasa Indonesia
+  return "id";
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>("en");
+  const [lang, setLangState] = useState<Language>("id");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -50,10 +59,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   if (!mounted) {
-    // Render dengan default English saat SSR untuk menghindari hydration mismatch
+    // Render dengan default Indonesian saat SSR untuk menghindari hydration mismatch
     return (
       <LanguageContext.Provider
-        value={{ lang: "en", setLang, t: translations["en"] }}
+        value={{ lang: "id", setLang, t: translations["id"] }}
       >
         {children}
       </LanguageContext.Provider>

@@ -2,9 +2,9 @@
 
 import { useLanguage } from "@/lib/language-context";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 
 const portfolio = [
+  // Existing projects
   {
     title: "Koperasi Desa",
     descriptionEn: "Village cooperative digital platform",
@@ -62,10 +62,42 @@ const portfolio = [
     demoUrl: "/embed?url=https://v0-joglo-heritage-marketplace.vercel.app/",
     slug: "marketplace-joglo-heritage",
   },
+  // New projects
+  {
+    title: "TernakKita",
+    descriptionEn: "Livestock marketplace & management platform",
+    descriptionId: "Platform marketplace & manajemen peternakan",
+    tech: ["Next.js", "E-commerce", "Dashboard"],
+    demoUrl: "/embed?url=https://ternakkita.vercel.app/",
+    slug: "ternakkita",
+  },
+  {
+    title: "Jepara Furniture",
+    descriptionEn: "Furniture catalog & e-commerce platform for Jepara crafts",
+    descriptionId: "Katalog & e-commerce furniture khas Jepara",
+    tech: ["Next.js", "E-commerce", "Tailwind"],
+    demoUrl: "/embed?url=https://jepara-furniture-eosin.vercel.app/",
+    slug: "jepara-furniture",
+  },
+  {
+    title: "VilaVinn",
+    descriptionEn: "Villa booking & vacation rental platform",
+    descriptionId: "Platform booking villa & sewa liburan",
+    tech: ["Next.js", "Booking", "Payment"],
+    demoUrl: "/embed?url=https://vilavinn.vercel.app/",
+    slug: "vilavinn",
+  },
+  {
+    title: "Jepata Hub",
+    descriptionEn: "Multi-service hub & community platform",
+    descriptionId: "Platform hub multi-layanan & komunitas",
+    tech: ["Next.js", "Full-Stack", "Dashboard"],
+    demoUrl: "/embed?url=https://jepata-hub.vercel.app/",
+    slug: "jepata-hub",
+  },
 ];
 
 export const Portfolio = () => {
-  const router = useRouter();
   const { t, lang } = useLanguage();
 
   return (

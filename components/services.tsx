@@ -2,9 +2,9 @@
 
 import { useLanguage } from "@/lib/language-context";
 import { motion } from "framer-motion";
-import { Cloud, Code, Shield, Zap } from "lucide-react";
+import { BrainCircuit, Cpu, Globe, Monitor, Smartphone } from "lucide-react";
 
-const serviceIcons = [Code, Cloud, Shield, Zap];
+const serviceIcons = [Smartphone, Globe, Monitor, Cpu, BrainCircuit];
 
 export const Services = () => {
   const { t } = useLanguage();
@@ -33,6 +33,7 @@ export const Services = () => {
     "from-purple-500/20 to-purple-600/5",
     "from-cyan-500/20 to-purple-500/10",
     "from-purple-500/20 to-cyan-600/5",
+    "from-cyan-500/20 to-cyan-600/5",
   ];
 
   return (
@@ -65,7 +66,7 @@ export const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {t.services.items.map(
             (service: { title: string; description: string }, i: number) => {

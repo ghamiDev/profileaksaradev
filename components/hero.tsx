@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/lib/language-context";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Database, Zap } from "lucide-react";
+import { ArrowRight, Cpu, Globe, Smartphone } from "lucide-react";
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -28,9 +28,9 @@ export const Hero = () => {
   };
 
   const features = [
-    { icon: Code2, label: t.hero.features[0].label },
-    { icon: Database, label: t.hero.features[1].label },
-    { icon: Zap, label: t.hero.features[2].label },
+    { icon: Smartphone, label: t.hero.features[0].label },
+    { icon: Globe, label: t.hero.features[1].label },
+    { icon: Cpu, label: t.hero.features[2].label },
   ];
 
   return (
@@ -52,7 +52,7 @@ export const Hero = () => {
 
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-8xl font-bold mb-6 gradient-neon-text"
+          className="text-5xl md:text-7xl font-bold mb-4 gradient-neon-text"
         >
           {t.hero.title}
           <br />
@@ -61,7 +61,7 @@ export const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto"
         >
           {t.hero.subtitle}
         </motion.p>
@@ -86,7 +86,7 @@ export const Hero = () => {
           </motion.button>
         </motion.div>
 
-        {/* Feature Pills */}
+        {/* Platform Feature Pills */}
         <motion.div
           variants={itemVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16"

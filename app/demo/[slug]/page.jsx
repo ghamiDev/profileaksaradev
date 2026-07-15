@@ -1,19 +1,25 @@
 const DEMO_MAP = {
-  'koperasi-desa': 'https://v0-cooperative-digital-platform.vercel.app/',
-  'koperasi-merah-putih': 'https://v0-koperasi-merah-putih-prototype.vercel.app/login',
-  'desa-digital': 'https://desa-digital-bay.vercel.app',
-  'admin-desa-digital': 'https://admi-panel-de-d-it.vercel.app/login',
-  'pos': 'https://aksara-pos-six.vercel.app/',
-  'travel-rental': 'https://travel-rental.vercel.app/',
-  'marketplace-joglo-heritage': 'https://v0-joglo-heritage-marketplace.vercel.app/',
-}
+  "koperasi-desa": "https://v0-cooperative-digital-platform.vercel.app/",
+  "koperasi-merah-putih":
+    "https://v0-koperasi-merah-putih-prototype.vercel.app/login",
+  "desa-digital": "https://desa-digital-bay.vercel.app",
+  "admin-desa-digital": "https://admi-panel-de-d-it.vercel.app/login",
+  pos: "https://aksara-pos-six.vercel.app/",
+  "travel-rental": "https://travel-rental.vercel.app/",
+  "marketplace-joglo-heritage":
+    "https://v0-joglo-heritage-marketplace.vercel.app/",
+  ternakkita: "https://ternakkita.vercel.app/",
+  "jepara-furniture": "https://jepara-furniture-eosin.vercel.app/",
+  vilavinn: "https://vilavinn.vercel.app/",
+  "jepata-hub": "https://jepata-hub.vercel.app/",
+};
 
 export default async function DemoPage({ params }) {
-  const url = DEMO_MAP[(await params).slug]
+  const url = DEMO_MAP[(await params).slug];
 
   return url ? (
     <iframe src={url} className="w-screen h-screen border-none" />
   ) : (
     <div className="p-4">Demo tidak ditemukan</div>
-  )
+  );
 }

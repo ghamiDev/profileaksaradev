@@ -12,17 +12,17 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: "Welcome to the Future",
-      title: "Innovative Tech",
-      titleNext: "Solutions",
+      badge: "Professional App Development Services",
+      title: "Build Your Dream",
+      titleNext: "Mobile • Web • Desktop • IoT • AI",
       subtitle:
-        "Crafting cutting-edge software and IT consulting services for modern enterprises",
-      cta: "Get Started",
-      learnMore: "Learn More",
+        "We develop high-quality applications across all platforms — from mobile, web, desktop, to IoT and AI-powered solutions for your business",
+      cta: "Start Your Project",
+      learnMore: "Explore Services",
       features: [
-        { label: "Full Stack Dev" },
-        { label: "Cloud Solutions" },
-        { label: "Performance" },
+        { label: "Mobile Apps" },
+        { label: "Web & Desktop" },
+        { label: "IoT & AI" },
       ],
     },
 
@@ -31,12 +31,13 @@ export const translations = {
       badge: "About Me",
       title: "Expert in Modern Tech Stack",
       description:
-        "With 10+ years of experience in software development and IT consulting, I help businesses transform their digital infrastructure. Specializing in cloud solutions, full-stack development, and enterprise architecture.",
+        "With 10+ years of experience in software development and IT consulting, we help businesses transform their digital infrastructure. Specializing in mobile apps, web platforms, desktop software, IoT systems, and AI integration.",
       highlights: [
-        "Full-Stack Web Development",
-        "Cloud Architecture & DevOps",
-        "Scalable Solutions",
-        "Technical Consulting",
+        "Mobile App Development (Android & iOS)",
+        "Web Application Development",
+        "Desktop Software (Windows, macOS, Linux)",
+        "IoT & Embedded Systems",
+        "AI & Machine Learning Solutions",
       ],
       stats: {
         projects: "Projects Completed",
@@ -48,29 +49,35 @@ export const translations = {
 
     // Services
     services: {
-      badge: "Services",
-      title: "What I Offer",
-      subtitle: "Comprehensive tech solutions tailored to your business needs",
+      badge: "What We Build",
+      title: "Apps for Every Platform",
+      subtitle:
+        "End-to-end development services for any platform you need. From concept to launch.",
       items: [
         {
-          title: "Full-Stack Development",
+          title: "Mobile Applications",
           description:
-            "Custom web applications built with modern frameworks and best practices",
+            "Native Android (Kotlin/Java) & iOS (Swift), plus cross-platform with React Native & Flutter. From startup MVPs to enterprise apps.",
         },
         {
-          title: "Cloud Solutions",
+          title: "Web Applications",
           description:
-            "AWS, Azure, GCP deployment and management for scalable infrastructure",
+            "SPA, PWA, e-commerce, dashboards, and full-scale web platforms built with Next.js, React, Vue, and Laravel.",
         },
         {
-          title: "Security & Compliance",
+          title: "Desktop Software",
           description:
-            "Enterprise-grade security implementations and compliance audits",
+            "Cross-platform desktop apps for Windows, macOS, and Linux using Electron, Tauri, or native development.",
         },
         {
-          title: "Performance Optimization",
+          title: "IoT Solutions",
           description:
-            "Speed up your applications and optimize database performance",
+            "Embedded systems, smart device integration, sensor networks, and real-time monitoring dashboards.",
+        },
+        {
+          title: "AI & Machine Learning",
+          description:
+            "Chatbots, predictive analytics, computer vision, NLP, and custom AI models integrated into your applications.",
         },
       ],
     },
@@ -116,7 +123,7 @@ export const translations = {
     // Tech Stack
     techStack: {
       badge: "Tech Stack",
-      title: "Technologies I Mastered",
+      title: "Technologies We Master",
     },
 
     // Testimonials
@@ -129,7 +136,7 @@ export const translations = {
     contact: {
       badge: "Get In Touch",
       title: "Let's Work Together",
-      subtitle: "Have a project in mind? I'd love to hear about it",
+      subtitle: "Have a project in mind? We'd love to hear about it",
       email: "Email",
       whatsapp: "WhatsApp",
       location: "Location",
@@ -144,7 +151,8 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Premium software solutions and IT consulting services",
+      tagline:
+        "Premium app development services for mobile, web, desktop, IoT & AI",
       quickLinks: "Quick Links",
       contact: "Contact",
       rights: "All rights reserved.",
@@ -170,31 +178,32 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: "Selamat Datang di Masa Depan",
-      title: "Solusi Teknologi",
-      titleNext: "Inovatif",
+      badge: "Jasa Pembuatan Aplikasi Profesional",
+      title: "Bangun Aplikasi",
+      titleNext: "Mobile • Web • Desktop • IoT • AI",
       subtitle:
-        "Menciptakan software mutakhir dan layanan konsultan IT untuk perusahaan modern",
-      cta: "Mulai Sekarang",
-      learnMore: "Pelajari Lebih",
+        "Kami mengembangkan aplikasi berkualitas tinggi untuk semua platform — dari mobile, web, desktop, hingga solusi IoT dan AI cerdas untuk bisnis Anda",
+      cta: "Mulai Proyek Anda",
+      learnMore: "Lihat Layanan",
       features: [
-        { label: "Full Stack Dev" },
-        { label: "Solusi Cloud" },
-        { label: "Performa" },
+        { label: "Aplikasi Mobile" },
+        { label: "Web & Desktop" },
+        { label: "IoT & AI" },
       ],
     },
 
     // About
     about: {
-      badge: "Tentang Saya",
-      title: "Ahli di Teknologi Modern",
+      badge: "Tentang Kami",
+      title: "Ahli di Semua Platform",
       description:
-        "Dengan pengalaman 10+ tahun di pengembangan software dan konsultan IT, saya membantu bisnis mentransformasi infrastruktur digital mereka. Spesialisasi di solusi cloud, full-stack development, dan arsitektur enterprise.",
+        "Dengan pengalaman 10+ tahun di pengembangan software, kami membantu bisnis mewujudkan aplikasi impian mereka. Spesialisasi di aplikasi mobile, web, desktop, sistem IoT, dan integrasi AI.",
       highlights: [
-        "Full-Stack Web Development",
-        "Cloud Architecture & DevOps",
-        "Solusi Skalabel",
-        "Konsultasi Teknis",
+        "Pengembangan Aplikasi Mobile (Android & iOS)",
+        "Pengembangan Aplikasi Web",
+        "Software Desktop (Windows, macOS, Linux)",
+        "IoT & Sistem Tertanam",
+        "Solusi AI & Machine Learning",
       ],
       stats: {
         projects: "Proyek Selesai",
@@ -206,30 +215,35 @@ export const translations = {
 
     // Services
     services: {
-      badge: "Layanan",
-      title: "Yang Saya Tawarkan",
+      badge: "Yang Kami Bangun",
+      title: "Aplikasi untuk Semua Platform",
       subtitle:
-        "Solusi teknologi komprehensif yang disesuaikan dengan kebutuhan bisnis Anda",
+        "Layanan pengembangan end-to-end untuk platform apa pun yang Anda butuhkan. Dari konsep hingga peluncuran.",
       items: [
         {
-          title: "Full-Stack Development",
+          title: "Aplikasi Mobile",
           description:
-            "Aplikasi web kustom dibangun dengan framework modern dan praktik terbaik",
+            "Native Android (Kotlin/Java) & iOS (Swift), plus cross-platform dengan React Native & Flutter. Dari MVP startup hingga aplikasi enterprise.",
         },
         {
-          title: "Solusi Cloud",
+          title: "Aplikasi Web",
           description:
-            "Deployment dan manajemen AWS, Azure, GCP untuk infrastruktur yang skalabel",
+            "SPA, PWA, e-commerce, dashboard, dan platform web skala penuh dibangun dengan Next.js, React, Vue, dan Laravel.",
         },
         {
-          title: "Keamanan & Kepatuhan",
+          title: "Software Desktop",
           description:
-            "Implementasi keamanan tingkat enterprise dan audit kepatuhan",
+            "Aplikasi desktop lintas platform untuk Windows, macOS, dan Linux menggunakan Electron, Tauri, atau native development.",
         },
         {
-          title: "Optimasi Performa",
+          title: "Solusi IoT",
           description:
-            "Percepat aplikasi Anda dan optimalkan performa database",
+            "Sistem tertanam, integrasi perangkat pintar, jaringan sensor, dan dashboard monitoring real-time.",
+        },
+        {
+          title: "AI & Machine Learning",
+          description:
+            "Chatbot, analitik prediktif, computer vision, NLP, dan model AI kustom yang diintegrasikan ke dalam aplikasi Anda.",
         },
       ],
     },
@@ -275,7 +289,7 @@ export const translations = {
     // Tech Stack
     techStack: {
       badge: "Teknologi",
-      title: "Teknologi yang Saya Kuasai",
+      title: "Teknologi yang Kami Kuasai",
     },
 
     // Testimonials
@@ -288,7 +302,7 @@ export const translations = {
     contact: {
       badge: "Hubungi Kami",
       title: "Mari Bekerja Sama",
-      subtitle: "Punya proyek dalam pikiran? Saya ingin mendengarnya",
+      subtitle: "Punya proyek dalam pikiran? Kami ingin mendengarnya",
       email: "Email",
       whatsapp: "WhatsApp",
       location: "Lokasi",
@@ -303,7 +317,8 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Solusi software premium dan layanan konsultan IT",
+      tagline:
+        "Layanan pembuatan aplikasi premium untuk mobile, web, desktop, IoT & AI",
       quickLinks: "Tautan Cepat",
       contact: "Kontak",
       rights: "Hak cipta dilindungi.",

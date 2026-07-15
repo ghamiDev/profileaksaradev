@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       {/* 3. Masukkan variabel font ke body agar font Geist benar-benar teraplikasi */}
       <body
         className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}

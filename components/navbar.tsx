@@ -1,19 +1,21 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
-
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLanguage } from "@/lib/language-context";
+import { motion } from "framer-motion";
+import { Globe, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const { t, lang, setLang } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.portfolio, href: "#portfolio" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   return (
     <motion.nav
@@ -32,26 +34,51 @@ export const Navbar = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
               <motion.a
                 key={item.label}
                 href={item.href}
-                whileHover={{ color: '#00d9ff', textShadow: '0 0 10px rgba(0, 217, 255, 0.5)' }}
+                whileHover={{
+                  color: "#00d9ff",
+                  textShadow: "0 0 10px rgba(0, 217, 255, 0.5)",
+                }}
                 className="text-gray-300 hover:text-cyan-400 transition-colors"
               >
                 {item.label}
               </motion.a>
             ))}
+
+            {/* Language Switcher */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setLang(lang === "en" ? "id" : "en")}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-all text-sm"
+              title={t.nav.language}
+            >
+              <Globe size={14} />
+              <span className="font-semibold">{lang.toUpperCase()}</span>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-cyan-400"
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setLang(lang === "en" ? "id" : "en")}
+              className="flex items-center gap-1 px-2 py-1 rounded-full border border-cyan-500/30 text-cyan-400 text-xs"
+            >
+              <Globe size={12} />
+              <span className="font-semibold">{lang.toUpperCase()}</span>
+            </motion.button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-cyan-400"
+            >
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -76,5 +103,5 @@ export const Navbar = () => {
         )}
       </div>
     </motion.nav>
-  )
-}
+  );
+};

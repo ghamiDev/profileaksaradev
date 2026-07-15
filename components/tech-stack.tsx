@@ -1,15 +1,27 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import { useLanguage } from "@/lib/language-context";
+import { motion } from "framer-motion";
 
 const technologies = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'Express', 'Python', 'PostgreSQL', 'MongoDB'] },
-  { category: 'Cloud & DevOps', items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'] },
-  { category: 'Tools', items: ['Git', 'VS Code', 'Figma', 'Jira', 'Linux'] },
-]
+  {
+    category: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB"],
+  },
+  {
+    category: "Cloud & DevOps",
+    items: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"],
+  },
+  { category: "Tools", items: ["Git", "VS Code", "Figma", "Jira", "Linux"] },
+];
 
 export const TechStack = () => {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -18,7 +30,7 @@ export const TechStack = () => {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -27,7 +39,7 @@ export const TechStack = () => {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section className="relative py-20">
@@ -44,10 +56,10 @@ export const TechStack = () => {
             whileInView={{ opacity: 1 }}
             className="text-cyan-400 font-semibold"
           >
-            Tech Stack
+            {t.techStack.badge}
           </motion.span>
           <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            Technologies I Mastered
+            {t.techStack.title}
           </h2>
         </motion.div>
 
@@ -65,7 +77,9 @@ export const TechStack = () => {
               whileHover={{ y: -5 }}
               className="glass p-6 rounded-xl border border-purple-500/20 hover:border-purple-400/50 transition-all"
             >
-              <h3 className="text-xl font-bold mb-4 text-cyan-400">{tech.category}</h3>
+              <h3 className="text-xl font-bold mb-4 text-cyan-400">
+                {tech.category}
+              </h3>
               <div className="space-y-2">
                 {tech.items.map((item) => (
                   <motion.p
@@ -82,5 +96,5 @@ export const TechStack = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};

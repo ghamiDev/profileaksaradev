@@ -1,10 +1,12 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucide-react'
-import { FaInstagram, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
+import { useLanguage } from "@/lib/language-context";
+import { motion } from "framer-motion";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { FaTiktok, FaWhatsapp } from "react-icons/fa6";
 
 export const Contact = () => {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -13,7 +15,7 @@ export const Contact = () => {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -22,7 +24,7 @@ export const Contact = () => {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section id="contact" className="relative py-20">
@@ -39,13 +41,13 @@ export const Contact = () => {
             whileInView={{ opacity: 1 }}
             className="text-cyan-400 font-semibold"
           >
-            Get In Touch
+            {t.contact.badge}
           </motion.span>
           <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            Let&apos;s Work Together
+            {t.contact.title}
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Have a project in mind? I&apos;d love to hear about it
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -53,21 +55,21 @@ export const Contact = () => {
           {[
             {
               icon: Mail,
-              label: 'Email',
-              value: 'pm@aksaradev.com',
-              href: 'mailto:pm@aksaradev.com',
+              label: t.contact.email,
+              value: "pm@aksaradev.com",
+              href: "mailto:pm@aksaradev.com",
             },
             {
               icon: Phone,
-              label: 'WhatsApp',
-              value: '+62 857 2553 1089',
-              href: 'https://wa.me/6285725531089',
+              label: t.contact.whatsapp,
+              value: "+62 857 2553 1089",
+              href: "https://wa.me/6285725531089",
             },
             {
               icon: MapPin,
-              label: 'Location',
-              value: 'Jepara, Indonesia',
-              href: 'https://maps.google.com/?q=Jepara,+Indonesia',
+              label: t.contact.location,
+              value: "Jepara, Indonesia",
+              href: "https://maps.google.com/?q=Jepara,+Indonesia",
             },
           ].map((contact, i) => (
             <motion.a
@@ -101,29 +103,35 @@ export const Contact = () => {
         >
           <form className="space-y-6">
             <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">Name</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-300">
+                {t.contact.formName}
+              </label>
               <input
                 type="text"
                 className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder="Your name"
+                placeholder={t.contact.formPlaceholderName}
               />
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">Email</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-300">
+                {t.contact.formEmail}
+              </label>
               <input
                 type="email"
                 className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder="your@email.com"
+                placeholder={t.contact.formPlaceholderEmail}
               />
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">Project Details</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-300">
+                {t.contact.formProject}
+              </label>
               <textarea
                 rows={5}
                 className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder="Tell me about your project..."
+                placeholder={t.contact.formPlaceholderProject}
               />
             </motion.div>
 
@@ -131,10 +139,12 @@ export const Contact = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://wa.me/6285725531089', '_blank')}
-              className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold glow-intense hover:shadow-2xl transition-shadow"
+              onClick={() =>
+                window.open("https://wa.me/6285725531089", "_blank")
+              }
+              className="w-full px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold glow-intense hover:shadow-2xl transition-shadow"
             >
-              Send via WhatsApp
+              {t.contact.formSubmit}
             </motion.button>
           </form>
         </motion.div>
@@ -148,9 +158,12 @@ export const Contact = () => {
           className="flex justify-center gap-6 mt-12"
         >
           {[
-            { icon: Instagram, href: 'https://www.instagram.com/aksaradevstudio' },
-            { icon: FaTiktok, href: 'https://www.tiktok.com/@aksaradevstudio' },
-            { icon: FaWhatsapp, href: 'https://wa.me/6285725531089' },
+            {
+              icon: Instagram,
+              href: "https://www.instagram.com/aksaradevstudio",
+            },
+            { icon: FaTiktok, href: "https://www.tiktok.com/@aksaradevstudio" },
+            { icon: FaWhatsapp, href: "https://wa.me/6285725531089" },
           ].map((social, i) => (
             <motion.a
               key={i}
@@ -168,5 +181,5 @@ export const Contact = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};

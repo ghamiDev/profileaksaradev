@@ -49,7 +49,7 @@ export const AIAnalyticsDemo = () => {
                 <span className="text-cyan-400 font-bold">94.2%</span>
               </div>
               <div className="w-full bg-black/50 rounded-full h-2">
-                <div className="bg-gradient-to-r from-cyan-500 to-purple-600 h-2 rounded-full" style={{ width: '94.2%' }} />
+                <div className="bg-linear-to-r from-cyan-500 to-purple-600 h-2 rounded-full" style={{ width: '94.2%' }} />
               </div>
             </div>
 
@@ -59,7 +59,7 @@ export const AIAnalyticsDemo = () => {
                 <span className="text-cyan-400 font-bold">1.2s</span>
               </div>
               <div className="w-full bg-black/50 rounded-full h-2">
-                <div className="bg-gradient-to-r from-cyan-500 to-purple-600 h-2 rounded-full" style={{ width: '88%' }} />
+                <div className="bg-linear-to-r from-cyan-500 to-purple-600 h-2 rounded-full" style={{ width: '88%' }} />
               </div>
             </div>
 

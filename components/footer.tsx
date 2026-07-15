@@ -1,11 +1,21 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { FaWhatsapp } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import { useLanguage } from "@/lib/language-context";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
+  const { t, lang } = useLanguage();
+
+  const navItems = [
+    t.nav.home,
+    t.nav.about,
+    t.nav.services,
+    t.nav.portfolio,
+    t.nav.contact,
+  ];
 
   return (
     <footer className="relative border-t border-cyan-500/20 glass">
@@ -19,17 +29,19 @@ export const Footer = () => {
         >
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold gradient-neon-text mb-2">Aksara Dev Studio</h3>
-            <p className="text-gray-400">
-              Premium software solutions and IT consulting services
-            </p>
+            <h3 className="text-2xl font-bold gradient-neon-text mb-2">
+              Aksara Dev Studio
+            </h3>
+            <p className="text-gray-400">{t.footer.tagline}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white mb-4">
+              {t.footer.quickLinks}
+            </h4>
             <div className="space-y-2">
-              {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((link) => (
+              {navItems.map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
@@ -43,10 +55,11 @@ export const Footer = () => {
 
           {/* Info */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-white mb-4">
+              {t.footer.contact}
+            </h4>
 
             <div className="space-y-3 text-gray-400">
-              
               <a
                 href="https://wa.me/6285725531089"
                 target="_blank"
@@ -64,7 +77,6 @@ export const Footer = () => {
                 <MdEmail size={18} />
                 <span>pm@aksaradev.com</span>
               </a>
-
             </div>
           </div>
         </motion.div>
@@ -80,10 +92,12 @@ export const Footer = () => {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
         >
-          <p>&copy; {currentYear} Aksara Dev Studio. All rights reserved.</p>
-          <p>Designed & Built with ✨</p>
+          <p>
+            &copy; {currentYear} Aksara Dev Studio. {t.footer.rights}
+          </p>
+          <p>{t.footer.built}</p>
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};

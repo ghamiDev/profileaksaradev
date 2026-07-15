@@ -1,30 +1,36 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Star } from 'lucide-react'
+import { useLanguage } from "@/lib/language-context";
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Sarah Anderson',
-    role: 'CEO, TechFlow Inc',
-    content: 'Exceptional developer who transformed our entire infrastructure. Highly recommended!',
+    name: "Sarah Anderson",
+    role: "CEO, TechFlow Inc",
+    content:
+      "Exceptional developer who transformed our entire infrastructure. Highly recommended!",
     rating: 5,
   },
   {
-    name: 'Mark Johnson',
-    role: 'CTO, Digital Ventures',
-    content: 'Delivered a complex cloud migration project on time and under budget. Impressive work!',
+    name: "Mark Johnson",
+    role: "CTO, Digital Ventures",
+    content:
+      "Delivered a complex cloud migration project on time and under budget. Impressive work!",
     rating: 5,
   },
   {
-    name: 'Emily Chen',
-    role: 'Product Manager, StartUp Lab',
-    content: 'Professional, reliable, and incredibly knowledgeable. A pleasure to work with.',
+    name: "Emily Chen",
+    role: "Product Manager, StartUp Lab",
+    content:
+      "Professional, reliable, and incredibly knowledgeable. A pleasure to work with.",
     rating: 5,
   },
-]
+];
 
 export const Testimonials = () => {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,7 +39,7 @@ export const Testimonials = () => {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -42,7 +48,7 @@ export const Testimonials = () => {
       x: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section className="relative py-20">
@@ -59,10 +65,10 @@ export const Testimonials = () => {
             whileInView={{ opacity: 1 }}
             className="text-cyan-400 font-semibold"
           >
-            Testimonials
+            {t.testimonials.badge}
           </motion.span>
           <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            What Clients Say
+            {t.testimonials.title}
           </h2>
         </motion.div>
 
@@ -84,10 +90,16 @@ export const Testimonials = () => {
                 {Array(testimonial.rating)
                   .fill(null)
                   .map((_, j) => (
-                    <Star key={j} size={16} className="fill-purple-400 text-purple-400" />
+                    <Star
+                      key={j}
+                      size={16}
+                      className="fill-purple-400 text-purple-400"
+                    />
                   ))}
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">{testimonial.content}</p>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {testimonial.content}
+              </p>
               <div>
                 <p className="font-bold text-white">{testimonial.name}</p>
                 <p className="text-cyan-400 text-sm">{testimonial.role}</p>
@@ -97,5 +109,5 @@ export const Testimonials = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};

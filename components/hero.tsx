@@ -3,9 +3,15 @@
 import { useLanguage } from "@/lib/language-context";
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Globe, Smartphone } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const Hero = () => {
   const { t } = useLanguage();
+  const router = useRouter();
+
+  const handleStartProject = () => {
+    router.push("/#contact");
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,6 +79,7 @@ export const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleStartProject}
             className="px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 glow-intense hover:shadow-2xl transition-shadow"
           >
             {t.hero.cta} <ArrowRight size={20} />
@@ -80,6 +87,7 @@ export const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/#services")}
             className="px-8 py-4 glass rounded-lg font-semibold text-cyan-400 border border-cyan-500/50 hover:border-cyan-400"
           >
             {t.hero.learnMore}

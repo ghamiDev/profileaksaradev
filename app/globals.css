@@ -1,107 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import 'tailwindcss';
 
-@theme {
-  /* Registrasi Variabel agar dikenali sebagai class Tailwind */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  
-  /* BARIS INI WAJIB ADA UNTUK MEMPERBAIKI ERROR border-border */
-  --color-border: var(--border); 
-  
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-xl: var(--radius);
+body {
+  margin: 0;
 }
 
-:root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #0a0a0a;
-  --card-foreground: #ffffff;
-  --popover: #000000;
-  --popover-foreground: #ffffff;
-  --primary: #00d9ff;
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: #a855f7;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #808080;
-  --accent: #00d9ff;
-  --accent-foreground: #000000;
-  --destructive: #ff0000;
-  --destructive-foreground: #ffffff;
-  --border: #1a1a1a;
-  --input: #1a1a1a;
-  --ring: #00d9ff;
-  --chart-1: #00d9ff;
-  --chart-2: #a855f7;
-  --chart-3: #ff006e;
-  --chart-4: #00f5ff;
-  --chart-5: #b537f2;
-  --radius: 0.625rem;
-  --glow-blue: 0 0 30px rgba(0, 217, 255, 0.3);
-  --glow-purple: 0 0 30px rgba(168, 85, 247, 0.3);
-  --glow-intense: 0 0 60px rgba(0, 217, 255, 0.6);
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @layer base {
-  * {
-    /* Sekarang border-border akan dikenali karena sudah ada --color-border di @theme */
-    @apply border-border outline-ring/50;
+  a {
+    color: #2B3990;
+    transition: color 0.15s ease;
   }
-  html, body {
-    background-color: #000000;
-    color: #ffffff;
+
+  a:hover {
+    color: #0F1535;
   }
 }
 
-@layer utilities {
-  .glow-blue { box-shadow: var(--glow-blue); }
-  .glow-purple { box-shadow: var(--glow-purple); }
-  .glow-intense { box-shadow: var(--glow-intense); }
-  .glow-text-blue { text-shadow: 0 0 20px rgba(0, 217, 255, 0.5); }
-  .glow-text-purple { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
-  .backdrop-blur-md-custom { backdrop-filter: blur(12px); }
-  
-  .glass {
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 217, 255, 0.1);
+/* Ensure all solid primary buttons always have clear white text */
+a[style*="background: var(--primary)"],
+a[style*="background:#2B3990"],
+a[style*="background: #2B3990"],
+button[style*="background: var(--primary)"] {
+  color: #ffffff !important;
+}
+
+a[style*="background: var(--primary)"]:hover,
+a[style*="background:#2B3990"]:hover,
+a[style*="background: #2B3990"]:hover {
+  color: #ffffff !important;
+  opacity: 0.92;
+}
+
+[id] {
+  scroll-margin-top: 84px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #9FB0FF;
+  outline-offset: 2px;
+}
+
+.wa-float {
+  display: none;
+}
+
+[style*="flex: 1 1 240px"] {
+  align-items: flex-start !important;
+}
+
+[style*="flex: 1 1 240px"] > span:first-child {
+  flex: none;
+  margin-top: 9px;
+}
+
+@media (max-width: 700px) {
+  [id] {
+    scroll-margin-top: 12px;
   }
-  
-  .glass-purple {
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(168, 85, 247, 0.1);
+
+  /* header: logo + CTA on one row, menu as swipeable row */
+  [style*="position: sticky"] {
+    position: static !important;
   }
-  
-  .gradient-neon {
-    background: linear-gradient(135deg, #00d9ff 0%, #a855f7 100%);
+
+  [style*="position: static"] > div,
+  [style*="position: sticky"] > div {
+    padding: 12px 20px !important;
+    gap: 10px 12px !important;
   }
-  
-  .gradient-neon-text {
-    background: linear-gradient(135deg, #00d9ff 0%, #a855f7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  .brand {
+    order: 1;
+    min-width: 0;
+    gap: 8px !important;
+  }
+
+  .brand > div:first-child {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 17px !important;
+    border-radius: 8px !important;
+    flex: none;
+  }
+
+  .brand > div:last-child {
+    font-size: 17px !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta {
+    order: 2;
+    margin-left: auto;
+    flex: none;
+  }
+
+  .nav-cta .hide-m {
+    display: none !important;
+  }
+
+  .nav-cta a {
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    font-size: 13.5px !important;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    gap: 22px !important;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-mask-image: linear-gradient(to right, #000 90%, transparent);
+    mask-image: linear-gradient(to right, #000 90%, transparent);
+    padding-right: 24px !important;
+    gap: 20px !important;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+    padding: 6px 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 380px) {
+    .hide-xs {
+      display: none;
+    }
+    .nav-links {
+      gap: 18px !important;
+    }
+  }
+
+  /* spacing */
+  [style*="padding: 96px 24px"] {
+    padding: 56px 20px !important;
+  }
+
+  [style*="padding: 80px 24px 96px"] {
+    padding: 36px 20px 56px !important;
+  }
+
+  [style*="padding: 48px 24px"] {
+    padding: 36px 20px !important;
+  }
+
+  [style*="padding: 56px 24px 40px"] {
+    padding: 44px 20px 32px !important;
+  }
+
+  [style*="padding: 28px"],
+  [style*="padding: 26px"],
+  [style*="padding: 22px 24px"] {
+    padding: 20px !important;
+  }
+
+  [style*="padding: 32px;"] {
+    padding: 22px !important;
+  }
+
+  [style*="gap: 56px"] {
+    gap: 36px !important;
+  }
+
+  h1 {
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+  }
+
+  h2 {
+    font-size: 27px !important;
+    line-height: 1.2 !important;
+  }
+
+  [style*="font-size: 19px"],
+  [style*="font-size: 18px; color"] {
+    font-size: 16.5px !important;
+  }
+
+  h2[style*="margin: 0 0 48px"] {
+    margin-bottom: 28px !important;
+  }
+
+  p[style*="margin: 0 0 48px"] {
+    margin-bottom: 28px !important;
+  }
+
+  /* hero */
+  .hero-cta {
+    flex-direction: column;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-cta a {
+    width: 100%;
+  }
+
+  .hero-visual {
+    padding-bottom: 0 !important;
+  }
+
+  .phone {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: -18px 8px 0 auto;
+    width: 140px !important;
+  }
+
+  /* stats: 2 x 2 */
+  .stats {
+    gap: 20px 16px !important;
+  }
+
+  .stats > div {
+    flex: 1 1 40% !important;
+  }
+
+  .stats [style*="font-size: 44px"] {
+    font-size: 34px !important;
+  }
+
+  /* cta band */
+  .cta-band {
+    padding: 22px !important;
+  }
+
+  .cta-band a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* code block */
+  pre {
+    font-size: 12px !important;
+  }
+
+  /* floating WhatsApp */
+  .wa-float {
+    font-family: Inter, system-ui, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 20;
+    min-height: 48px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: #0F766E;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(15, 21, 53, 0.28);
+  }
+
+  .wa-float:hover {
+    color: #fff !important;
+  }
+
+  body {
+    padding-bottom: 72px;
   }
 }

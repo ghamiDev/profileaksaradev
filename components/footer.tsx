@@ -1,103 +1,60 @@
-"use client";
+import Link from "next/link";
 
-import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-
-export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const { t, lang } = useLanguage();
-
-  const navItems = [
-    t.nav.home,
-    t.nav.about,
-    t.nav.services,
-    t.nav.portfolio,
-    t.nav.contact,
-  ];
-
+export function Footer() {
   return (
-    <footer className="relative border-t border-cyan-500/20 glass">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-12 mb-8"
-        >
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold gradient-neon-text mb-2">
-              Aksara Dev Studio
-            </h3>
-            <p className="text-gray-400">{t.footer.tagline}</p>
+    <footer className="pad-footer py-14 pb-10 px-6 bg-[var(--ink)] text-[#AEB4D6]">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="flex flex-wrap gap-10 mb-10">
+          <div className="flex-[2_1_280px] min-w-0">
+            <div className="flex items-center gap-[10px] mb-[14px]">
+              <div className="w-9 h-9 rounded-[9px] bg-white text-[var(--ink)] flex items-center justify-center font-space font-bold text-xl">
+                A
+              </div>
+              <div className="font-space font-bold text-xl text-white tracking-[0.02em]">
+                AKSARA DEV
+              </div>
+            </div>
+            <p className="m-0 text-[15px] max-w-[360px]">
+              Jasa pembuatan aplikasi web, mobile, dan sistem internal untuk
+              bisnis yang ingin bertumbuh secara digital.
+            </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              {t.footer.quickLinks}
-            </h4>
-            <div className="space-y-2">
-              {navItems.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors block"
-                >
-                  {link}
-                </a>
-              ))}
+          <div className="flex-[1_1_160px]">
+            <div className="text-white font-semibold mb-3">Layanan</div>
+            <div className="flex flex-col gap-2 text-[15px]">
+              <Link href="#layanan" className="text-[#AEB4D6] no-underline hover:text-white">
+                Semua layanan
+              </Link>
+              <Link href="#proses" className="text-[#AEB4D6] no-underline hover:text-white">
+                Proses kerja
+              </Link>
+              <Link href="#teknologi" className="text-[#AEB4D6] no-underline hover:text-white">
+                Teknologi
+              </Link>
             </div>
           </div>
 
-          {/* Info */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              {t.footer.contact}
-            </h4>
-
-            <div className="space-y-3 text-gray-400">
-              <a
-                href="https://wa.me/6285725531089"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-cyan-400 transition-colors"
-              >
-                <FaWhatsapp size={18} />
-                <span>+62 857 2553 1089</span>
-              </a>
-
-              <a
-                href="mailto:pm@aksaradev.com"
-                className="flex items-center gap-3 hover:text-cyan-400 transition-colors"
-              >
-                <MdEmail size={18} />
-                <span>pm@aksaradev.com</span>
-              </a>
+          <div className="flex-[1_1_160px]">
+            <div className="text-white font-semibold mb-3">Perusahaan</div>
+            <div className="flex flex-col gap-2 text-[15px]">
+              <Link href="#industri" className="text-[#AEB4D6] no-underline hover:text-white">
+                Industri
+              </Link>
+              <Link href="#portofolio" className="text-[#AEB4D6] no-underline hover:text-white">
+                Portofolio
+              </Link>
+              <Link href="#kontak" className="text-[#AEB4D6] no-underline hover:text-white">
+                Kontak
+              </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Divider */}
-        <div className="border-t border-purple-500/20 my-8" />
-
-        {/* Bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
-        >
-          <p>
-            &copy; {currentYear} Aksara Dev Studio. {t.footer.rights}
-          </p>
-          <p>{t.footer.built}</p>
-        </motion.div>
+        <div className="border-t border-[rgba(255,255,255,0.14)] pt-6 text-[14px]">
+          © 2026 AKSARA DEV. Seluruh hak cipta dilindungi.
+        </div>
       </div>
     </footer>
   );
-};
+}

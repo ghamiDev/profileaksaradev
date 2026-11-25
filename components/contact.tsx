@@ -1,185 +1,166 @@
 "use client";
 
-import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { FaTiktok, FaWhatsapp } from "react-icons/fa6";
+import { useState } from "react";
 
-export const Contact = () => {
-  const { t } = useLanguage();
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+export function Contact() {
+  const [formData, setFormData] = useState({
+    nama: "",
+    usaha: "",
+    email: "",
+    jenis: "Aplikasi web",
+    cerita: "",
+  });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+  const generateWhatsAppUrl = () => {
+    const { nama, usaha, email, jenis, cerita } = formData;
+    const msg = `Halo AKSARA DEV, saya ${nama}${
+      usaha ? ` dari ${usaha}` : ""
+    } (${email}). Jenis aplikasi: ${jenis}. ${cerita}`;
+    return `https://wa.me/6285725531089?text=${encodeURIComponent(msg)}`;
   };
 
   return (
-    <section id="contact" className="relative py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-cyan-400 font-semibold"
-          >
-            {t.contact.badge}
-          </motion.span>
-          <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            {t.contact.title}
+    <div id="kontak" className="pad-section py-24 px-6 bg-[var(--primary)] text-white">
+      <div className="hero-gap max-w-[1200px] mx-auto flex flex-wrap gap-14">
+        {/* Left Info Column */}
+        <div className="flex-[1_1_420px] min-w-0">
+          <h2 className="font-space text-[clamp(30px,4vw,44px)] leading-[1.15] font-bold tracking-[-0.02em] mb-4 text-white">
+            Siap mengubah ide Anda menjadi aplikasi?
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            {t.contact.subtitle}
+          <p className="subhead-text text-[18px] mb-8 text-[#E7E9F8] max-w-[520px]">
+            Jadwalkan konsultasi 30 menit. Ceritakan kebutuhan Anda, kami berikan
+            gambaran solusi, lingkup, dan langkah berikutnya, tanpa biaya.
           </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            {
-              icon: Mail,
-              label: t.contact.email,
-              value: "pm@aksaradev.com",
-              href: "mailto:pm@aksaradev.com",
-            },
-            {
-              icon: Phone,
-              label: t.contact.whatsapp,
-              value: "+62 857 2553 1089",
-              href: "https://wa.me/6285725531089",
-            },
-            {
-              icon: MapPin,
-              label: t.contact.location,
-              value: "Jepara, Indonesia",
-              href: "https://maps.google.com/?q=Jepara,+Indonesia",
-            },
-          ].map((contact, i) => (
-            <motion.a
-              key={i}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              className="glass p-6 rounded-xl border border-purple-500/20 hover:border-purple-400/50 transition-all text-center group"
-            >
-              <contact.icon className="w-8 h-8 text-cyan-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-              <p className="text-gray-400 mb-2">{contact.label}</p>
-              <p className="font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                {contact.value}
-              </p>
-            </motion.a>
-          ))}
+          <div className="flex flex-col gap-[6px] text-[16px]">
+            <div>
+              <a
+                href="mailto:pm@aksaradev.com"
+                className="text-white no-underline hover:underline"
+              >
+                pm@aksaradev.com
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://wa.me/6285725531089"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white no-underline hover:underline"
+              >
+                +62 857 2553 1089 (WhatsApp)
+              </a>
+            </div>
+            <div>Jepara, Indonesia</div>
+          </div>
         </div>
 
-        {/* Contact Form */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="glass p-8 md:p-12 rounded-2xl border border-cyan-500/20 max-w-2xl mx-auto"
+        {/* Right Form Column */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            window.open(generateWhatsAppUrl(), "_blank", "noopener,noreferrer");
+          }}
+          className="pad-card-lg flex-[1_1_420px] min-w-0 bg-white text-[var(--ink)] rounded-[16px] p-8 flex flex-col gap-4 shadow-xl"
         >
-          <form className="space-y-6">
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">
-                {t.contact.formName}
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder={t.contact.formPlaceholderName}
-              />
-            </motion.div>
+          <div className="font-space font-bold text-[22px]">
+            Minta konsultasi
+          </div>
 
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">
-                {t.contact.formEmail}
-              </label>
-              <input
-                type="email"
-                className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder={t.contact.formPlaceholderEmail}
-              />
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold mb-2 text-gray-300">
-                {t.contact.formProject}
-              </label>
-              <textarea
-                rows={5}
-                className="w-full px-4 py-3 rounded-lg bg-black/50 border border-purple-500/30 text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none transition-colors"
-                placeholder={t.contact.formPlaceholderProject}
-              />
-            </motion.div>
-
-            <motion.button
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                window.open("https://wa.me/6285725531089", "_blank")
+          <div className="flex flex-col gap-[6px]">
+            <label htmlFor="f-nama" className="text-[14px] font-medium">
+              Nama lengkap
+            </label>
+            <input
+              id="f-nama"
+              type="text"
+              value={formData.nama}
+              onChange={(e) =>
+                setFormData({ ...formData, nama: e.target.value })
               }
-              className="w-full px-8 py-4 bg-linear-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold glow-intense hover:shadow-2xl transition-shadow"
-            >
-              {t.contact.formSubmit}
-            </motion.button>
-          </form>
-        </motion.div>
+              className="min-h-[46px] px-[14px] border-[1.5px] border-[var(--line)] rounded-[10px] text-[16px] text-[var(--ink)] focus:outline-none"
+              placeholder="Nama Anda"
+            />
+          </div>
 
-        {/* Social Links */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex justify-center gap-6 mt-12"
-        >
-          {[
-            {
-              icon: Instagram,
-              href: "https://www.instagram.com/aksaradevstudio",
-            },
-            { icon: FaTiktok, href: "https://www.tiktok.com/@aksaradevstudio" },
-            { icon: FaWhatsapp, href: "https://wa.me/6285725531089" },
-          ].map((social, i) => (
-            <motion.a
-              key={i}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-10 h-10 rounded-full glass border border-purple-500/30 flex items-center justify-center text-cyan-400 hover:text-purple-400 hover:border-purple-400/50 transition-all"
+          <div className="flex flex-col gap-[6px]">
+            <label htmlFor="f-usaha" className="text-[14px] font-medium">
+              Perusahaan / usaha
+            </label>
+            <input
+              id="f-usaha"
+              type="text"
+              value={formData.usaha}
+              onChange={(e) =>
+                setFormData({ ...formData, usaha: e.target.value })
+              }
+              className="min-h-[46px] px-[14px] border-[1.5px] border-[var(--line)] rounded-[10px] text-[16px] text-[var(--ink)] focus:outline-none"
+              placeholder="Nama usaha Anda"
+            />
+          </div>
+
+          <div className="flex flex-col gap-[6px]">
+            <label htmlFor="f-email" className="text-[14px] font-medium">
+              Email kerja
+            </label>
+            <input
+              id="f-email"
+              type="email"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              className="min-h-[46px] px-[14px] border-[1.5px] border-[var(--line)] rounded-[10px] text-[16px] text-[var(--ink)] focus:outline-none"
+              placeholder="nama@perusahaan.com"
+            />
+          </div>
+
+          <div className="flex flex-col gap-[6px]">
+            <label htmlFor="f-jenis" className="text-[14px] font-medium">
+              Jenis aplikasi
+            </label>
+            <select
+              id="f-jenis"
+              value={formData.jenis}
+              onChange={(e) =>
+                setFormData({ ...formData, jenis: e.target.value })
+              }
+              className="min-h-[46px] px-3 border-[1.5px] border-[var(--line)] rounded-[10px] text-[16px] text-[var(--ink)] bg-white focus:outline-none"
             >
-              <social.icon size={20} />
-            </motion.a>
-          ))}
-        </motion.div>
+              <option>Aplikasi web</option>
+              <option>Aplikasi mobile (Android / iOS)</option>
+              <option>Progressive Web App</option>
+              <option>Sistem internal / manajemen</option>
+              <option>Ordering / e-commerce</option>
+              <option>Belum tahu, perlu konsultasi</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-[6px]">
+            <label htmlFor="f-cerita" className="text-[14px] font-medium">
+              Ceritakan singkat kebutuhan Anda
+            </label>
+            <textarea
+              id="f-cerita"
+              rows={3}
+              value={formData.cerita}
+              onChange={(e) =>
+                setFormData({ ...formData, cerita: e.target.value })
+              }
+              className="py-3 px-[14px] border-[1.5px] border-[var(--line)] rounded-[10px] text-[16px] text-[var(--ink)] resize-y focus:outline-none"
+              placeholder="Deskripsi singkat aplikasi yang ingin dibuat..."
+            />
+          </div>
+
+          <a
+            href={generateWhatsAppUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center min-h-[50px] rounded-[10px] bg-[var(--primary)] !text-white hover:!text-white text-[16px] font-semibold no-underline hover:opacity-90 transition-opacity mt-1"
+          >
+            Kirim via WhatsApp
+          </a>
+        </form>
       </div>
-    </section>
+    </div>
   );
-};
+}

@@ -1,172 +1,117 @@
-"use client";
-
-import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
-
-const portfolio = [
-  // Existing projects
-  {
-    title: "Koperasi Desa",
-    descriptionEn: "Village cooperative digital platform",
-    descriptionId: "Platform digital koperasi desa",
-    tech: ["Next.js", "Firebase", "Tailwind"],
-    demoUrl: "/embed?url=https://v0-cooperative-digital-platform.vercel.app/",
-    slug: "koperasi-desa",
-  },
-  {
-    title: "Koperasi Merah Putih",
-    descriptionEn: "Merah Putih cooperative prototype",
-    descriptionId: "Prototype koperasi merah putih",
-    tech: ["Next.js", "Auth", "Dashboard"],
-    demoUrl:
-      "/embed?url=https://v0-koperasi-merah-putih-prototype.vercel.app/login",
-    slug: "koperasi-merah-putih",
-  },
-  {
-    title: "Desa Digital",
-    descriptionEn: "Village digitalization platform",
-    descriptionId: "Platform digitalisasi desa",
-    tech: ["React", "API", "CMS"],
-    demoUrl: "/embed?url=https://desa-digital-bay.vercel.app",
-    slug: "desa-digital",
-  },
-  {
-    title: "Admin Panel Desa Digital",
-    descriptionEn: "Village digital admin panel",
-    descriptionId: "Panel admin desa digital",
-    tech: ["React", "Dashboard", "Auth"],
-    demoUrl: "/embed?url=https://admi-panel-de-d-it.vercel.app/login",
-    slug: "admin-desa-digital",
-  },
-  {
-    title: "POS",
-    descriptionEn: "Modern cashier system",
-    descriptionId: "Sistem kasir modern",
-    tech: ["React", "QRIS", "Printer"],
-    demoUrl: "/embed?url=https://aksara-pos-six.vercel.app/",
-    slug: "pos",
-  },
-  {
-    title: "Sistem Management Travel & Rental",
-    descriptionEn: "Travel & vehicle rental management",
-    descriptionId: "Manajemen travel & rental kendaraan",
-    tech: ["Next.js", "Booking", "Payment"],
-    demoUrl: "/embed?url=https://travel-rental.vercel.app/",
-    slug: "travel-rental",
-  },
-  {
-    title: "Marketplace Joglo Heritage",
-    descriptionEn: "Marketplace for Joglo heritage products",
-    descriptionId: "Platform marketplace untuk produk budaya Joglo",
-    tech: ["Next.js", "E-commerce", "Payment"],
-    demoUrl: "/embed?url=https://v0-joglo-heritage-marketplace.vercel.app/",
-    slug: "marketplace-joglo-heritage",
-  },
-  // New projects
-  {
-    title: "TernakKita",
-    descriptionEn: "Livestock marketplace & management platform",
-    descriptionId: "Platform marketplace & manajemen peternakan",
-    tech: ["Next.js", "E-commerce", "Dashboard"],
-    demoUrl: "/embed?url=https://ternakkita.vercel.app/",
-    slug: "ternakkita",
-  },
-  {
-    title: "Jepara Furniture",
-    descriptionEn: "Furniture catalog & e-commerce platform for Jepara crafts",
-    descriptionId: "Katalog & e-commerce furniture khas Jepara",
-    tech: ["Next.js", "E-commerce", "Tailwind"],
-    demoUrl: "/embed?url=https://jepara-furniture-eosin.vercel.app/",
-    slug: "jepara-furniture",
-  },
-  {
-    title: "VilaVinn",
-    descriptionEn: "Villa booking & vacation rental platform",
-    descriptionId: "Platform booking villa & sewa liburan",
-    tech: ["Next.js", "Booking", "Payment"],
-    demoUrl: "/embed?url=https://vilavinn.vercel.app/",
-    slug: "vilavinn",
-  },
-  {
-    title: "Jepata Hub",
-    descriptionEn: "Multi-service hub & community platform",
-    descriptionId: "Platform hub multi-layanan & komunitas",
-    tech: ["Next.js", "Full-Stack", "Dashboard"],
-    demoUrl: "/embed?url=https://jepata-hub.vercel.app/",
-    slug: "jepata-hub",
-  },
-];
-
-export const Portfolio = () => {
-  const { t, lang } = useLanguage();
+export function Portfolio() {
+  const projects = [
+    {
+      title: "Koperasi Desa",
+      desc: "Platform digital untuk koperasi desa.",
+      tags: ["Next.js", "Firebase", "Tailwind"],
+      link: "https://v0-cooperative-digital-platform.vercel.app/",
+    },
+    {
+      title: "Koperasi Merah Putih",
+      desc: "Prototipe koperasi dengan fitur login.",
+      tags: ["Next.js", "Auth", "Dashboard"],
+      link: "https://v0-koperasi-merah-putih-prototype.vercel.app/login",
+    },
+    {
+      title: "Desa Digital",
+      desc: "Platform digitalisasi desa.",
+      tags: ["React", "API", "CMS"],
+      link: "https://desa-digital-bay.vercel.app",
+    },
+    {
+      title: "Admin Panel Desa Digital",
+      desc: "Panel admin untuk platform Desa Digital.",
+      tags: ["React", "Dashboard", "Auth"],
+      link: "https://admi-panel-de-d-it.vercel.app/login",
+    },
+    {
+      title: "POS",
+      desc: "Sistem point-of-sale modern.",
+      tags: ["React", "QRIS", "Printer"],
+      link: "https://aksara-pos-six.vercel.app/",
+    },
+    {
+      title: "Travel & Rental Management",
+      desc: "Manajemen perjalanan dan rental kendaraan.",
+      tags: ["Next.js", "Booking", "Payment"],
+      link: "https://travel-rental.vercel.app/",
+    },
+    {
+      title: "Joglo Heritage Marketplace",
+      desc: "Marketplace untuk produk budaya Joglo.",
+      tags: ["Next.js", "E-commerce", "Payment"],
+      link: "https://v0-joglo-heritage-marketplace.vercel.app/",
+    },
+    {
+      title: "TernakKita",
+      desc: "Marketplace dan manajemen peternakan.",
+      tags: ["Next.js", "E-commerce", "Dashboard"],
+      link: "https://ternakkita.vercel.app/",
+    },
+    {
+      title: "Jepara Furniture",
+      desc: "Katalog dan e-commerce furnitur Jepara.",
+      tags: ["Next.js", "E-commerce", "Tailwind"],
+      link: "https://jepara-furniture-eosin.vercel.app/",
+    },
+    {
+      title: "VilaVinn",
+      desc: "Pemesanan vila dan penyewaan liburan.",
+      tags: ["Next.js", "Booking", "Payment"],
+      link: "https://vilavinn.vercel.app/",
+    },
+    {
+      title: "Jepata Hub",
+      desc: "Hub multi-layanan dan komunitas.",
+      tags: ["Next.js", "Full-Stack", "Dashboard"],
+      link: "https://jepata-hub.vercel.app/",
+    },
+  ];
 
   return (
-    <section id="portfolio" className="relative py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-cyan-400 font-semibold">
-            {t.portfolio.badge}
-          </span>
-          <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            {t.portfolio.title}
-          </h2>
-        </div>
+    <div id="portofolio" className="pad-section py-24 px-6">
+      <div className="max-w-[1200px] mx-auto">
+        <p className="font-mono-code text-[13px] tracking-[0.08em] uppercase text-[var(--primary)] font-medium mb-4">
+          Portofolio
+        </p>
+        <h2 className="font-space text-[clamp(30px,4vw,44px)] leading-[1.15] font-bold tracking-[-0.02em] mb-12 max-w-[760px]">
+          Proyek Unggulan
+        </h2>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {portfolio.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => window.open(`/demo/${item.slug}`, "_blank")}
-              className="group cursor-pointer rounded-2xl overflow-hidden bg-white/5 backdrop-blur border border-white/10 hover:border-cyan-400/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,255,0.15)]"
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
+          {projects.map((proj) => (
+            <div
+              key={proj.title}
+              className="bg-white border border-[var(--line)] rounded-[16px] p-[26px] flex flex-col gap-3"
             >
-              {/* Preview */}
-              <div className="relative">
-                <iframe
-                  src={item.demoUrl}
-                  className="w-full h-55 border-none pointer-events-none"
-                  loading="lazy"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
-                  <span className="px-4 py-2 bg-cyan-500 text-white rounded-lg font-semibold shadow-lg">
-                    {t.portfolio.openDemo}
+              <h3 className="font-space text-[21px] leading-[1.25] m-0">
+                {proj.title}
+              </h3>
+              <p className="m-0 text-[var(--muted)] text-[15px] flex-1">
+                {proj.desc}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {proj.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="py-1 px-[10px] rounded-[6px] bg-[var(--soft)] text-[var(--primary)] font-mono-code text-[12px] font-medium"
+                  >
+                    {t}
                   </span>
-                </div>
+                ))}
               </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="text-xl font-semibold text-white mb-1">
-                  {item.title}
-                </h3>
-
-                <p className="text-sm text-gray-400 mb-4">
-                  {lang === "en" ? item.descriptionEn : item.descriptionId}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
-                  {item.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              <a
+                href={proj.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center min-h-[44px] px-5 rounded-[10px] border-[1.5px] border-[var(--primary)] text-[var(--primary)] font-semibold text-[15px] no-underline hover:bg-[var(--soft)] transition-colors mt-1"
+              >
+                Buka Demo
+              </a>
+            </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
-};
+}

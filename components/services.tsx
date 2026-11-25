@@ -1,96 +1,102 @@
-"use client";
+import Link from "next/link";
 
-import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
-import { BrainCircuit, Cpu, Globe, Monitor, Smartphone } from "lucide-react";
-
-const serviceIcons = [Smartphone, Globe, Monitor, Cpu, BrainCircuit];
-
-export const Services = () => {
-  const { t } = useLanguage();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+export function Services() {
+  const services = [
+    {
+      badge: "WEB",
+      title: "Aplikasi Web",
+      desc: "Dashboard, portal pelanggan, hingga sistem manajemen yang bisa diakses dari browser mana pun.",
     },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
+    {
+      badge: "MOBILE",
+      title: "Aplikasi Mobile",
+      desc: "Android dan iOS dari satu basis kode atau native, sesuai kebutuhan performa dan anggaran.",
     },
-  };
-
-  const colors = [
-    "from-cyan-500/20 to-cyan-600/5",
-    "from-purple-500/20 to-purple-600/5",
-    "from-cyan-500/20 to-purple-500/10",
-    "from-purple-500/20 to-cyan-600/5",
-    "from-cyan-500/20 to-cyan-600/5",
+    {
+      badge: "PWA",
+      title: "Progressive Web App",
+      desc: "Aplikasi yang bisa dipasang di layar ponsel tanpa toko aplikasi, ringan dan tetap berjalan saat sinyal lemah.",
+    },
+    {
+      badge: "SISTEM",
+      title: "Sistem Internal",
+      desc: "Gantikan spreadsheet dan kertas dengan sistem yang menyatukan stok, transaksi, dan laporan.",
+    },
+    {
+      badge: "ORDER",
+      title: "Ordering & E-commerce",
+      desc: "Katalog, keranjang, pembayaran, dan pelacakan pesanan untuk toko maupun usaha kuliner.",
+    },
+    {
+      badge: "API",
+      title: "Integrasi & API",
+      desc: "Hubungkan aplikasi dengan sistem akuntansi, payment gateway, WhatsApp, dan layanan pihak ketiga.",
+    },
+    {
+      badge: "UI/UX",
+      title: "UI/UX Design",
+      desc: "Riset pengguna, wireframe, dan prototipe interaktif yang divalidasi sebelum kode ditulis.",
+    },
+    {
+      badge: "CARE",
+      title: "Maintenance & Support",
+      desc: "Pemantauan, perbaikan bug, pembaruan keamanan, dan pengembangan fitur setelah rilis.",
+    },
   ];
 
   return (
-    <section id="services" className="relative py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-cyan-400 font-semibold"
-          >
-            {t.services.badge}
-          </motion.span>
-          <h2 className="text-5xl font-bold mb-4 gradient-neon-text mt-2">
-            {t.services.title}
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            {t.services.subtitle}
-          </p>
-        </motion.div>
+    <div
+      id="layanan"
+      className="pad-section py-24 px-6 bg-white border-y border-[var(--line)]"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        <p className="font-mono-code text-[13px] tracking-[0.08em] uppercase text-[var(--primary)] font-medium mb-4">
+          Produk &amp; Layanan
+        </p>
+        <h2 className="font-space text-[clamp(30px,4vw,44px)] leading-[1.15] font-bold tracking-[-0.02em] mb-4 max-w-[760px]">
+          Delapan layanan. Pilih yang Anda butuhkan, tambah saat bisnis tumbuh.
+        </h2>
+        <p className="subhead-text mb-section text-[18px] text-[var(--muted)] mb-12 max-w-[680px]">
+          Mulai dari satu aplikasi sederhana, lalu kembangkan bertahap. Setiap
+          layanan bisa diambil terpisah atau digabung dalam satu proyek.
+        </p>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {t.services.items.map(
-            (service: { title: string; description: string }, i: number) => {
-              const Icon = serviceIcons[i];
-              return (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, boxShadow: "var(--glow-intense)" }}
-                  className={`glass p-8 rounded-xl border border-cyan-500/20 hover:border-cyan-400/50 transition-all bg-linear-to-br ${colors[i]}`}
-                >
-                  <Icon className="w-12 h-12 text-cyan-400 mb-4" />
-                  <h3 className="text-2xl font-bold mb-3 text-white">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                </motion.div>
-              );
-            },
-          )}
-        </motion.div>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5">
+          {services.map((svc) => (
+            <div
+              key={svc.badge}
+              className="pad-card bg-[#F7F7F4] border border-[var(--line)] rounded-[16px] p-7"
+            >
+              <div className="inline-block py-[3px] px-[10px] rounded-[6px] bg-[var(--primary)] text-white font-mono-code text-[12px] font-medium tracking-[0.06em] mb-4">
+                {svc.badge}
+              </div>
+              <h3 className="font-space text-[21px] leading-[1.25] mb-[10px]">
+                {svc.title}
+              </h3>
+              <p className="m-0 text-[var(--muted)] text-[15px]">{svc.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Band */}
+        <div className="cta-band mt-8 flex flex-wrap items-center justify-between gap-5 bg-[var(--soft)] rounded-[16px] p-7 md:p-8">
+          <div className="flex-[1_1_320px]">
+            <h3 className="font-space text-[22px] mb-[6px]">
+              Belum yakin aplikasi apa yang tepat?
+            </h3>
+            <p className="m-0 text-[var(--muted)]">
+              Ceritakan masalah bisnis Anda, kami bantu rumuskan solusi dan
+              perkiraan lingkupnya.
+            </p>
+          </div>
+          <Link
+            href="#kontak"
+            className="inline-flex items-center min-h-[48px] px-6 rounded-[10px] bg-[var(--primary)] !text-white hover:!text-white font-semibold no-underline hover:opacity-90 transition-opacity"
+          >
+            Konsultasi gratis
+          </Link>
+        </div>
       </div>
-    </section>
+    </div>
   );
-};
+}

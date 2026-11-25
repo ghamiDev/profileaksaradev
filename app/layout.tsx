@@ -1,50 +1,53 @@
-import { LanguageProvider } from "@/lib/language-context";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const geist = Geist({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-geist-sans", // Tambahkan variabel agar CSS bisa mengenalinya
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
-// 1. Pindahkan viewport dan themeColor ke sini
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  themeColor: "#000000",
+  themeColor: "#2B3990",
 };
 
-// 2. Metadata sekarang hanya berisi informasi SEO dan Icon
 export const metadata: Metadata = {
-  title: "Premium Software Developer & IT Consultant Portfolio",
+  title: "AKSARA DEV — Jasa Pembuatan Aplikasi",
   description:
-    "Innovative software developer and IT consultant specializing in cutting-edge technology solutions. Explore my portfolio and services.",
-  generator: "v0.app",
+    "AKSARA DEV: jasa pembuatan aplikasi web, mobile, dan sistem internal. Dari analisis kebutuhan, desain, pengembangan, sampai perawatan setelah rilis.",
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: "AKSARA DEV",
+    title: "AKSARA DEV — Jasa Pembuatan Aplikasi",
+    description:
+      "AKSARA DEV: jasa pembuatan aplikasi web, mobile, dan sistem internal. Dari analisis kebutuhan, desain, pengembangan, sampai perawatan setelah rilis.",
+  },
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
       {
         url: "/icon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
   },
 };
 
@@ -54,12 +57,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      {/* 3. Masukkan variabel font ke body agar font Geist benar-benar teraplikasi */}
+    <html lang="id" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
-        className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
         <Analytics />
       </body>
     </html>

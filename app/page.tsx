@@ -2523,7 +2523,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://v0-cooperative-digital-platform.vercel.app/"
+                href="https://aksaradev.com/demo/koperasi-desa"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2617,7 +2617,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://v0-koperasi-merah-putih-prototype.vercel.app/login"
+                href="https://aksaradev.com/demo/koperasi-merah-putih"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2711,7 +2711,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://desa-digital-bay.vercel.app"
+                href="https://aksaradev.com/demo/desa-digital"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2805,7 +2805,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://admi-panel-de-d-it.vercel.app/login"
+                href="https://aksaradev.com/demo/admin-desa-digital"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2899,7 +2899,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://aksara-pos-six.vercel.app/"
+                href="https://aksaradev.com/demo/pos"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2993,7 +2993,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://travel-rental.vercel.app/"
+                href="https://aksaradev.com/demo/travel-rental"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -3087,7 +3087,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://v0-joglo-heritage-marketplace.vercel.app/"
+                href="https://aksaradev.com/demo/joglo-heritage-marketplace"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -3181,7 +3181,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://ternakkita.vercel.app/"
+                href="https://aksaradev.com/demo/ternakkita"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -3275,7 +3275,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://jepara-furniture-eosin.vercel.app/"
+                href="https://aksaradev.com/demo/jepara-furniture"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -3369,7 +3369,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://vilavinn.vercel.app/"
+                href="https://aksaradev.com/demo/vilavinn"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -3463,7 +3463,7 @@ export default function Home() {
                 </span>
               </div>
               <a
-                href="https://jepata-hub.vercel.app/"
+                href="https://aksaradev.com/demo/jepata-hub"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

@@ -8,6 +8,8 @@ const DEMO_MAP = {
   "travel-rental": "https://travel-rental.vercel.app/",
   "marketplace-joglo-heritage":
     "https://v0-joglo-heritage-marketplace.vercel.app/",
+  "joglo-heritage-marketplace":
+    "https://v0-joglo-heritage-marketplace.vercel.app/",
   ternakkita: "https://ternakkita.vercel.app/",
   "jepara-furniture": "https://jepara-furniture-eosin.vercel.app/",
   vilavinn: "https://vilavinn.vercel.app/",

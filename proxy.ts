@@ -2,6 +2,26 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
+  const host = request.headers.get("host") || "";
+  const { pathname } = request.nextUrl;
+
+  // Handle subdomain demo.aksaradev.com -> /demo/:slug
+  if (host.startsWith("demo.")) {
+    if (
+      !pathname.startsWith("/demo") &&
+      !pathname.startsWith("/api") &&
+      !pathname.startsWith("/_next") &&
+      !pathname.includes(".")
+    ) {
+      const slug = pathname.replace(/^\//, "");
+      if (slug) {
+        const url = request.nextUrl.clone();
+        url.pathname = `/demo/${slug}`;
+        return NextResponse.rewrite(url);
+      }
+    }
+  }
+
   const response = NextResponse.next();
 
   // Deteksi negara dari IP via Vercel Geo headers
